@@ -10,14 +10,17 @@
 
   <script type="text/paperscript" canvas="myCanvas">
     var y = 100;
-    
-    function onKeyDown(event) {
-    	// When a key is pressed, set the content of the text item:
-    	alert('The ' + event.key + ' key was pressed!');
 
-      new Path.Circle(new Point(100, y), 10).fillColor = "yellow";
-      y += 100;
+    function onKeyDown(event) {
+      // maxPoint is at lower right corner
+      // randomPoint is between (0,0) and (1,1)
+      // canvasPoint is on our visible canvas
+      var maxPoint = new Point(view.size.width, view.size.height);
+      var randomPoint = Point.random();
+      var canvasCoord = maxPoint * randomPoint;
+      new Path.Circle(canvasCoord, 10).fillColor = "orange";
     }
+
   </script>
 </head>
 
