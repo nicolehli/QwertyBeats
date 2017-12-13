@@ -7,15 +7,17 @@
 
   <link rel="stylesheet" href="circle.css">
   <script type="text/javascript" src="paper-full.js"></script>
+
   <script type="text/paperscript" canvas="myCanvas">
+    var y = 100;
+    
+    function onKeyDown(event) {
+    	// When a key is pressed, set the content of the text item:
+    	alert('The ' + event.key + ' key was pressed!');
 
-
-    for (var x=0; x < 1000; x+=100){
-      for (var y=0; y < 1000; y+=100) {
-        new Path.Circle(new Point(x, y), 10).fillColor = "yellow";
-      }
+      new Path.Circle(new Point(100, y), 10).fillColor = "yellow";
+      y += 100;
     }
-
   </script>
 </head>
 
