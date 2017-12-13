@@ -9,7 +9,7 @@
   <script type="text/javascript" src="paper-full.js"></script>
 
   <script type="text/paperscript" canvas="myCanvas">
-    var y = 100;
+    var circles = [];
 
     function onKeyDown(event) {
       // maxPoint is at lower right corner
@@ -18,8 +18,30 @@
       var maxPoint = new Point(view.size.width, view.size.height);
       var randomPoint = Point.random();
       var canvasCoord = maxPoint * randomPoint;
-      new Path.Circle(canvasCoord, 10).fillColor = "orange";
+      var newCircle = new Path.Circle(canvasCoord, 10);
+      newCircle.fillColor = "orange";
+      circles.push(newCircle);
+
     }
+
+    // animatedCircle
+    var animatedCircle = new Path.Circle( new Point(300, 300), 100);
+    animatedCircle.fillColor = "red";
+
+    function onFrame(event) {
+      // Each frame, loop through circle array
+      for(var i = 0; i < circles.length; i++){
+        // change the fill color of the path slightly by
+      	// adding 1 to its hue:
+      	circles[i].fillColor.hue += 1;
+      }
+        animatedCircle.fillColor.hue += 1;
+        // scales by multiples by 0.9 and shrink
+        // animatedCircle.scale(.9);
+    }
+
+
+
 
   </script>
 </head>
