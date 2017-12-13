@@ -24,9 +24,6 @@
 
     }
 
-    // animatedCircle
-    var animatedCircle = new Path.Circle( new Point(300, 300), 100);
-    animatedCircle.fillColor = "red";
 
     function onFrame(event) {
       // Each frame, loop through circle array
@@ -34,10 +31,8 @@
         // change the fill color of the path slightly by
       	// adding 1 to its hue:
       	circles[i].fillColor.hue += 1;
+        circles[i].scale(.9);
       }
-        animatedCircle.fillColor.hue += 1;
-        // scales by multiples by 0.9 and shrink
-        // animatedCircle.scale(.9);
     }
 
 
