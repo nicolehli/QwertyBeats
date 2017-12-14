@@ -3,6 +3,7 @@ body, html {
   margin: 0;
   width: 100%;
   background: black;
+  font-family: 'Barlow', sans-serif;
 }
 
 canvas {

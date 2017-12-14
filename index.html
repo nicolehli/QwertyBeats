@@ -6,12 +6,20 @@
   <title>Qwerty Beats</title>
 
   <link rel="stylesheet" href="circle.css">
+  <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <script type="text/javascript" src="paper-full.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.5/howler.js"></script>
 
   <script type="text/paperscript" canvas="myCanvas">
-
     // variables
+    var text = new PointText({
+      position: view.center,
+      fillColor: 'white',
+      justification: 'center',
+      fontSize: 20,
+      font: 'Bungee',
+      content: 'Press any keys A to Z to start. \nTurn up speakers!',
+    });
     var circles = [];
     var sound1 = new Howl({
       src: ['sounds/bubbles.mp3']
@@ -176,6 +184,7 @@
     }
 
     function onKeyDown(event) {
+      text.opacity = 0;
 
       if(keyData[event.key]){
         // MAKE RANDOM COORD POINT
